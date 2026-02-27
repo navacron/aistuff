@@ -1,38 +1,7 @@
 import React, { useState } from 'react';
-import { quizQuestions, tables } from '../data/tables';
+import { quizQuestions } from '../data/config';
 
-function matchScore(table, answers) {
-  let score = 0;
-
-  if (answers.environment) {
-    if (table.environment === answers.environment || table.environment === 'both') score += 3;
-    else return -1; // hard mismatch
-  }
-
-  if (answers.space) {
-    if (table.size === answers.space) score += 2;
-    else if (answers.space === 'full' && table.size === 'mid') score += 0;
-    else if (answers.space === 'mid' && table.size === 'full') score += 1;
-  }
-
-  if (answers.skillLevel) {
-    const levels = ['beginner', 'intermediate', 'advanced', 'professional'];
-    const idx = levels.indexOf(answers.skillLevel);
-    const tIdx = levels.indexOf(table.skillLevel);
-    score += Math.max(0, 2 - Math.abs(idx - tIdx));
-  }
-
-  if (answers.budget) {
-    const [min, max] = answers.budget.split('-').map(Number);
-    const price = table.salePrice ?? table.price;
-    if (price >= min && price <= max) score += 3;
-    else if (price < min) score += 1;
-  }
-
-  return score;
-}
-
-export default function QuizWizard({ onResults, onClose }) {
+export default function QuizWizard({ onComplete, onClose }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
 
@@ -43,13 +12,7 @@ export default function QuizWizard({ onResults, onClose }) {
     if (step < quizQuestions.length - 1) {
       setStep(step + 1);
     } else {
-      // Score all tables and return sorted results
-      const scored = tables
-        .map((t) => ({ table: t, score: matchScore(t, newAnswers) }))
-        .filter((r) => r.score >= 0)
-        .sort((a, b) => b.score - a.score)
-        .map((r) => r.table);
-      onResults(scored);
+      onComplete(newAnswers);
     }
   }
 
@@ -58,7 +21,7 @@ export default function QuizWizard({ onResults, onClose }) {
   }
 
   const current = quizQuestions[step];
-  const progress = ((step) / quizQuestions.length) * 100;
+  const progress = (step / quizQuestions.length) * 100;
 
   return (
     <div className="quiz-overlay" onClick={onClose}>

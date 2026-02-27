@@ -1,5 +1,5 @@
 import React from 'react';
-import { filterConfig } from '../data/tables';
+import { filterConfig } from '../data/config';
 
 export default function FilterPanel({ filters, onChange, totalCount, filteredCount }) {
   function toggle(key, value) {

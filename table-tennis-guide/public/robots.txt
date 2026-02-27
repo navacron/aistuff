@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block the raw API endpoint from being indexed
+Disallow: /api/
+
+Sitemap: https://recroompick.com/sitemap.xml
