@@ -220,7 +220,7 @@ export default function App() {
             <span className="logo-text">RecRoomPick</span>
           </a>
           <nav className="site-nav" aria-label="Page navigation">
-            <a href="#tables" className="nav-link">Tables</a>
+            <a href="#tool" className="nav-link">Comparison Tool</a>
             <a href="#buying-guide" className="nav-link">Buying Guide</a>
             <a href="#faq" className="nav-link">FAQ</a>
           </nav>
@@ -238,9 +238,9 @@ export default function App() {
             </p>
             <div className="hero-actions">
               <button className="btn btn-quiz" onClick={() => setShowQuiz(true)}>
-                🧠 Take the Quiz — Find My Table
+                🧠 Table Finder Tool — Get My Picks
               </button>
-              <a href="#tables" className="btn btn-ghost">Browse All Tables ↓</a>
+              <a href="#tool" className="btn btn-ghost">Use Comparison Calculator ↓</a>
             </div>
           </div>
           <div className="hero-stats" aria-label="Guide statistics">
@@ -304,6 +304,27 @@ export default function App() {
                 tournament feel.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Tool / Calculator section (SEO anchor target) ── */}
+      <section className="tool-intro" id="tool" aria-labelledby="tool-heading">
+        <div className="tool-intro-inner">
+          <h2 id="tool-heading">Table Tennis Table Comparison Tool &amp; Budget Calculator</h2>
+          <p>
+            Not sure which ping pong table is right for you? Our free{' '}
+            <strong>table tennis table selector tool</strong> lets you filter by budget, skill
+            level, indoor or outdoor use, and surface thickness. Use the{' '}
+            <strong>side-by-side comparison calculator</strong> to evaluate up to 3 tables at
+            once across 17 specs, or take the 4-question quiz to get instant personalized
+            recommendations.
+          </p>
+          <div className="tool-intro-links">
+            <button className="btn btn-quiz" onClick={() => setShowQuiz(true)}>
+              🧠 Take the Table Finder Quiz
+            </button>
+            <a href="#tables" className="btn btn-primary">Browse &amp; Filter All Tables ↓</a>
           </div>
         </div>
       </section>
@@ -457,6 +478,7 @@ export default function App() {
             <strong>RecRoomPick</strong> — Helping you build the perfect rec room, one pick at a time.
           </p>
           <nav className="footer-nav" aria-label="Footer links">
+            <a href="#tool">Comparison Tool</a>
             <a href="#buying-guide">Buying Guide</a>
             <a href="#faq">FAQ</a>
             <a href="#tables">All Tables</a>

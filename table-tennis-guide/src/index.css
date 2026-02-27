@@ -182,6 +182,38 @@ img { max-width: 100%; display: block; }
 .hero-stat-num { display: block; font-size: 2rem; font-weight: 800; }
 .hero-stat-label { font-size: 0.8rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.05em; }
 
+/* ── Tool / Calculator intro section ── */
+.tool-intro {
+  background: var(--gray-50, #f9fafb);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 48px 24px;
+}
+.tool-intro-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.tool-intro h2 {
+  font-size: clamp(1.3rem, 2.8vw, 1.85rem);
+  font-weight: 800;
+  color: var(--gray-800);
+  margin-bottom: 16px;
+}
+.tool-intro p {
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0 auto 28px;
+}
+.tool-intro-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* ── Quiz result banner ── */
 .quiz-result-banner {
   background: #fff8e1;
